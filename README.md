@@ -24,18 +24,48 @@ Another aspect is that the data set should be formatted in such a way that more 
 
 
 ## ALGORITHM:
-Importing the libraries
-Importing the dataset
-Taking care of missing data
-Encoding categorical data
-Normalizing the data
-Splitting the data into test and train
+1.Importing the libraries
+2.Importing the dataset
+3.Taking care of missing data
+4.Encoding categorical data
+5.Normalizing the data
+6.Splitting the data into test and train
 
 ## PROGRAM:
-/Write your code here/
+
+```
+import pandas as pd
+df=pd.read_csv("Churn_Modelling.csv")
+df.head()
+df.isnull().sum()
+df.drop(["RowNumber","Age","Gender","Geography","Surname"],inplace=True,axis=1)
+print(df)
+x=df.iloc[:,:-1].values
+y=df.iloc[:,-1].values
+print(x)
+print(y)
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df1 = pd.DataFrame(scaler.fit_transform(df))
+print(df1)
+from sklearn.model_selection import train_test_split
+xtrain,ytrain,xtest,ytest=train_test_split(x,y,test_size=0.2,random_state=2)
+print(xtrain)
+print(len(xtrain))
+print(xtest)
+print(len(xtest))
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+df1 = sc.fit_transform(df)
+print(df1)
+```
 
 ## OUTPUT:
-/ Show the result/
+![11](https://user-images.githubusercontent.com/94154531/229413992-924655c0-db37-426c-991e-b46b325cec55.png)
+![12](https://user-images.githubusercontent.com/94154531/229414007-c93d4d10-a839-4090-a577-bc05375fcf61.png)
+![13](https://user-images.githubusercontent.com/94154531/229414022-f315fc60-2b6f-4cd1-aa33-a681ca2fec95.png)
+![14](https://user-images.githubusercontent.com/94154531/229414040-bffbb5ee-29bd-4a14-80dd-45a4a9ce2aaa.png)
+
 
 ## RESULT
-/Type your result here/
+Thus the above program for standardizing the given data was implemented successfully.
