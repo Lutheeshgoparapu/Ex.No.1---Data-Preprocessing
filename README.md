@@ -30,6 +30,10 @@ Another aspect is that the data set should be formatted in such a way that more 
 4.Encoding categorical data
 5.Normalizing the data
 6.Splitting the data into test and train
+```
+Developed by: G.Lutheesh
+Register No: 212221230029.
+```
 
 ## PROGRAM:
 
